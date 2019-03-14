@@ -1,6 +1,16 @@
-# Flymybird
-hello
-it's me 
-SURPRISE MOTHER FUCKER 
-from mybird get nudes
+### Flymybird
+
+```
+
+source .env/bin/activate 
+
+python 
+
+```
+python 
+import app.db as db
+db = db.db_handler()
+db.query('select * from user')
+
+
 
