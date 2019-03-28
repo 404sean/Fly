@@ -55,3 +55,9 @@ def logout():
     session['username'] = None
     return render_template('logout.html')
 
+@app.route('/users')
+def users():
+	db = get_db()
+	users = db.query("SELECT first_name,last_name FROM user")
+	return render_template('users.html', users=users)
+

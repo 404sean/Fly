@@ -28,8 +28,9 @@ class db_handler:
             rv = cur.fetchone()
         else:
             rv = cur.fetchall()
+	items = [row for row in rv]  
         cur.close()
-        return rv
+        return items
     
     def edit(self, query, args=()):
         """

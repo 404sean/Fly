@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="container">
+		
+   		 {% for user in users %}
+    		<div><p>{{ user[0] }} wrote: <b>{{ user[1] }}</b></p></div>
+    		{% endfor %}
+	</div>
+{% endblock %}
+ 
