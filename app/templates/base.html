@@ -5,7 +5,12 @@
     	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
     </head>
     <body>
-	    <div><a href="/index">Home</a> | {% if session['username'] %}<a href="/logout">Logout</a> {% else %} <a href="/login">Login</a>  {% endif %}</div>
+	    <div><a href="/">Home</a> | 
+		    {% if session['username'] %}<a href="/adduser">Add User</a> | {% endif %} 
+		    {% if session['username'] %}<a href="/users">Users</a> | {% endif %} 
+		    <a href="/ex1">Ex 1</a> | 
+		    {% if session['username'] %}<a href="/logout">Logout</a> {% else %} <a href="/login">Login</a>  {% endif %} 
+		    {% if session['username'] %}(Logged as <strong>{{ session['username'] }}</strong>){% endif %}</div>
         <hr>
         {% block content %}{% endblock %}
     </body>

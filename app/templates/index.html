@@ -2,11 +2,8 @@
 
 {% block content %}
 	<div class="container">
-		<h1>Welcome, {% if session['username'] %} {{ session['username'] }} {% else %} Guest {% endif %}!</h1>
+		<h1>Welcome <b>{% if session['username'] %} {{ session['username'] }} {% else %} Guest {% endif %}</b>!</h1>
       		<br>
-    		{% for post in posts %}
-    		<div><p>{{ post.author.username }} wrote: <b>{{ post.body }}</b></p></div>
-    		{% endfor %}
+    		<div><p>This is my first Flask app :-)</p></div>
 	</div>
 {% endblock %}
- 

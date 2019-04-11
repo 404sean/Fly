@@ -24,13 +24,16 @@ class db_handler:
             Query the DB
         """
         cur = self.conn.execute(query, args)
+	rd = None
         if one:
-            rv = cur.fetchone()
+	    row = cur.fetchone()
+	    if row:
+	    	rd = dict(zip(zip(*cur.description)[0], row)) 
         else:
-            rv = cur.fetchall()
-	items = [row for row in rv]  
-        cur.close()
-        return items
+	    rows = cur.fetchall()
+	    if rows:
+	    	rd = [dict(zip(zip(*cur.description)[0], row)) for row in rows]
+	return rd if rd else None
     
     def edit(self, query, args=()):
         """
@@ -54,8 +57,15 @@ class db_handler:
         if self.conn is not None:
             self.conn.close()
     
-    # queries
     def get_user_password(self, username):
-        row = self.query('SELECT passwd_hash FROM user WHERE username=?', (username,), True)
-        return row['passwd_hash'] if row else None
+	"""
+	    Get user password
+	"""
+        rd = self.query('SELECT passwd_hash FROM user WHERE username=?', (username,), one=True)
+        return rd['passwd_hash'] if rd else None
 
+    def add_user(self, username, passwd_hash, firstname, lastname, email):
+        """
+            Add a new user
+        """
+        self.edit('INSERT INTO user (username, passwd_hash, first_name, last_name, email) VALUES (?,?,?,?,?)', (username, passwd_hash, firstname, lastname, email,))
