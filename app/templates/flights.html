@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="container">
+		<h1>List of Flights</h1>
+      		<br>
+		<table class="table">
+		<thead>
+			<tr><td><strong>Code</strong></td><td><strong>Company ID</strong></td>
+		</thead>
+		<tbody>
+    		{% for flight in flights %}
+		<tr>
+			<td>{{ flight.code }}</td><td>{{ flight.company_id }}</td>
+		</tr>
+    		{% endfor %}
+		</tbody>
+		</table>
+	</div>
+{% endblock %}
