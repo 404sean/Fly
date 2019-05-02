@@ -26,5 +26,8 @@ virtualenv .env
 
 # Cours du 11.04
 
+# application de réference (02.05)
+
+https://bitbucket.org/jimbotonic/m3/src/master
 
 

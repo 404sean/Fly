@@ -24,11 +24,11 @@ CREATE TABLE company (
 
 -- Table: flight
 CREATE TABLE flight (
-    id varchar(64) NOT NULL,
-    destination_id varchar(3) NOT NULL,
-    departure_id varchar(3) NOT NULL DEFAULT GVA,
+    id int NOT NULL,
+    destination_id varchar(4) NOT NULL,
+    departure_id varchar(4) NOT NULL DEFAULT 'GVA',
     schedule_id int NOT NULL,
-    code varchar(8) NOT NULL,
+    code varchar(10) NOT NULL,
     company_id int NOT NULL,
     plane_id int NOT NULL,
     CONSTRAINT flight_pk PRIMARY KEY (id)
@@ -37,7 +37,7 @@ CREATE TABLE flight (
 -- Table: plane
 CREATE TABLE plane (
     id int NOT NULL,
-    plane_model int NOT NULL,
+    plane_model varchar(64)) NOT NULL,
     places numeric(1000,1) NOT NULL,
     CONSTRAINT plane_pk PRIMARY KEY (id)
 );
@@ -93,7 +93,8 @@ ALTER TABLE flight ADD CONSTRAINT flight_Table_23 FOREIGN KEY flight_Table_23 (s
 ALTER TABLE flight ADD CONSTRAINT flight_Table_24 FOREIGN KEY flight_Table_24 (company_id)
     REFERENCES company (id);
 
--- Reference: flight_user_favorite_flight (table: user_favorite_flight)
+-- Reference: flight_user_favorite_fl
+INSERT Iight (table: user_favorite_flight)
 ALTER TABLE user_favorite_flight ADD CONSTRAINT flight_user_favorite_flight FOREIGN KEY flight_user_favorite_flight (flight_id)
     REFERENCES flight (id);
 
@@ -122,3 +123,6 @@ INSERT INTO user (username, passwd_hash, first_name,last_name, email, role_id) V
 INSERT INTO user (username, passwd_hash, first_name,last_name, email, role_id) VALUES ('ratroi','7110eda4d09e062aa5e4a390b0a572ac0d2c0220','jonas','harbarth','lalala@gmail.com',1);
 INSERT INTO user (username, passwd_hash, first_name,last_name,email, role_id) VALUES ('pizzaiolo','7110eda4d09e062aa5e4a390b0a572ac0d2c0220','sean','perazzolo','lolipop@gmail.com',1);
 
+-- add 2 
+
+INSERT INTO flight  (flight_id, desination_id, departure_id, schedule_id, company_id, plane_id) VALUES (1, 'MAD', 'GVA', 1, 1, 320 );

@@ -99,7 +99,7 @@ def ex1():
 def flights():
     title ="List of flights"
     db = get_db()
-    flights = db.query("SELECT * from flight")
+    flights = db.get_flights()
     return render_template('flights.html', title=title, flights=flights)
 
                                                        
