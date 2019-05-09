@@ -7,7 +7,7 @@ CREATE TABLE airport (
     id varchar(3) NOT NULL,
     city varchar(64) NOT NULL,
     country varchar(64) NOT NULL,
-    time_zone time NOT NULL,
+    time_zone varchar(5) NOT NULL,
     CONSTRAINT airport_pk PRIMARY KEY (id)
 );
 
@@ -22,11 +22,13 @@ CREATE TABLE company (
     CONSTRAINT company_pk PRIMARY KEY (id)
 );
 
+-----
+
 -- Table: flight
 CREATE TABLE flight (
     id int NOT NULL,
     destination_id varchar(4) NOT NULL,
-    departure_id varchar(4) NOT NULL DEFAULT 'GVA',
+    departure_id varchar(4) NOT NULL,
     schedule_id int NOT NULL,
     code varchar(10) NOT NULL,
     company_id int NOT NULL,
@@ -37,7 +39,7 @@ CREATE TABLE flight (
 -- Table: plane
 CREATE TABLE plane (
     id int NOT NULL,
-    plane_model varchar(64)) NOT NULL,
+    plane_model varchar(64) NOT NULL,
     places numeric(1000,1) NOT NULL,
     CONSTRAINT plane_pk PRIMARY KEY (id)
 );
@@ -49,6 +51,8 @@ CREATE TABLE role (
     description int NOT NULL,
     CONSTRAINT role_pk PRIMARY KEY (id)
 );
+
+--- 
 
 -- Table: schedule
 CREATE TABLE schedule (
@@ -123,6 +127,39 @@ INSERT INTO user (username, passwd_hash, first_name,last_name, email, role_id) V
 INSERT INTO user (username, passwd_hash, first_name,last_name, email, role_id) VALUES ('ratroi','7110eda4d09e062aa5e4a390b0a572ac0d2c0220','jonas','harbarth','lalala@gmail.com',1);
 INSERT INTO user (username, passwd_hash, first_name,last_name,email, role_id) VALUES ('pizzaiolo','7110eda4d09e062aa5e4a390b0a572ac0d2c0220','sean','perazzolo','lolipop@gmail.com',1);
 
--- add 2 
 
-INSERT INTO flight  (flight_id, desination_id, departure_id, schedule_id, company_id, plane_id) VALUES (1, 'MAD', 'GVA', 1, 1, 320 );
+-- add 22 airports manually 
+
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('LHR', 'Londres', 'Royaume-Uni', '-1');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('CDG', 'Paris', 'France', '0');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('NCE', 'Nice', 'France', '0');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('BOD', 'Bordeaux', 'France', '0');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('BCN', 'Barcelone', 'Espagne', '0');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('MAD', 'Madrid','Espagne', '0');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('AMS', 'Amsterdam', 'Pays-Bas' '0');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('SVO', 'Moscou', 'Russie', '+1');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('DXB', 'Dubai', 'Emirats Arabes Unis', '+2');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('ARN', 'Stockholm', 'Suède', '0');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('ZRH', 'Zurich', 'Suisse', '0');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('IST', 'Istanbul', 'Turquie', '+1');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('BRU', 'Brussels', 'Belgique', '0');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('FRA', 'Francfort', 'Allemagne', '0');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('MUC', 'Munich', 'Allemagne', '0');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('SXF', 'Berlin', 'Allemagne', '0');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('JFK', 'New york', 'Etats-Unis', '-6');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('YYZ', 'Toronto', 'Canada', '-6');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('RAK', 'Marrakech', 'Maroc', '-2');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('FCO', 'Rome', 'Italie', '0');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('PEK', 'Pékin', 'Chine', '+6');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('DOH', 'Doha', 'Qatar', '+1');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('CPH', 'Copenhague', 'Danemark', '0');
+
+
+-- add planes 
+
+-- INSERT INTO planes()
+
+
+-- add company
+
+-- INSERT INTO flight  (flight_id, desination_id, departure_id, schedule_id, company_id, plane_id) VALUES (1, 'MAD', 'GVA', 1, 1, 320 );

@@ -30,4 +30,8 @@ virtualenv .env
 
 https://bitbucket.org/jimbotonic/m3/src/master
 
+# modification 09.05)
+Username : ratroi
+password : 1234
 
+	

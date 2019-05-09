@@ -9,7 +9,7 @@
 		    {% if session['username'] %}<a href="/adduser">Add User</a> | {% endif %} 
 		    {% if session['username'] %}<a href="/users">Users</a> | {% endif %} 
 		    <a href="/flights">List Flights</a> | 
-		    <a href="/ex1">Ex 1</a> | 
+		    <a href="/airports">List Airports</a> | 
 		    {% if session['username'] %}<a href="/logout">Logout</a> {% else %} <a href="/login">Login</a>  {% endif %} 
 		    {% if session['username'] %}(Logged as <strong>{{ session['username'] }}</strong>){% endif %}</div>
         <hr>

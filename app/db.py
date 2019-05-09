@@ -64,12 +64,6 @@ class db_handler:
         rd = self.query('SELECT passwd_hash FROM user WHERE username=?', (username,), one=True)
         return rd['passwd_hash'] if rd else None
     
-    def get_flights(self):
-	"""
-	    Get set of flights
-	"""
-        rd = self.query('SELECT * FROM flight')
-        return rd if rd else None
 
     def add_user(self, username, passwd_hash, firstname, lastname, email):
         """

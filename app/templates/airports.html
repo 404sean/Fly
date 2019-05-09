@@ -2,19 +2,20 @@
 
 {% block content %}
 	<div class="container">
-		<h1>List of Flights</h1>
+		<h1>List of airports</h1>
       		<br>
 		<table class="table">
 		<thead>
-			<tr><td><strong>Code</strong></td><td><strong>Company ID</strong></td>
+			<tr><td><strong>Id</strong></td><td><strong>City</strong></td>
 		</thead>
 		<tbody>
-    		{% for flight in flights %}
+    		{% for airport in airports %}
 		<tr>
-			<td>{{ flight.code }}</td><td>{{ flight.company_id }}</td>
+			<td>{{ airport.id }}</td><td>{{ airport.city }}</td>
 		</tr>
     		{% endfor %}
 		</tbody>
-		</table>
+	
+	</table>
 	</div>
 {% endblock %}
