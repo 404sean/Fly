@@ -6,12 +6,12 @@
       		<br>
 		<table class="table">
 		<thead>
-			<tr><td><strong>Id</strong></td><td><strong>City</strong></td><td><strong>Country</strong></td><td><strong>Time change from Geneva</strong></td>
+			<tr><td><strong>Code</strong></td><td><strong>Company ID</strong></td>
 		</thead>
 		<tbody>
     		{% for airport in airports %}
 		<tr>
-			<td>{{ airport.id }}</td><td>{{ airport.city }}</td><td>{{ airport.country }}</td><td>{{ airport.time_zone }}</td>
+			<td>{{ flight.code }}</td><td>{{ flight.company_id }}</td>
 		</tr>
     		{% endfor %}
 		</tbody>

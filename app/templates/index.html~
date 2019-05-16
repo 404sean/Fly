@@ -4,6 +4,6 @@
 	<div class="container">
 		<h1>Welcome <b>{% if session['username'] %} {{ session['username'] }} {% else %} Traveller {% endif %}</b>!</h1>
       		<br>
-    		<div><p>This is a database of flights departing from Geneva</p></div>
+    		<div><p>This is a database of flights departing from Geneva:-)</p></div>
 	</div>
 {% endblock %}

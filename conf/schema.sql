@@ -2,27 +2,23 @@
 -- Last modification date: 2019-03-21 13:07:03.039
 
 -- tables
+
+
+-----
 -- Table: airport
 CREATE TABLE airport (
     id varchar(3) NOT NULL,
     city varchar(64) NOT NULL,
     country varchar(64) NOT NULL,
-    time_zone varchar(5) NOT NULL,
-    CONSTRAINT airport_pk PRIMARY KEY (id)
+    time_zone varchar(5) NOT NULL
 );
 
 -- Table: company
 CREATE TABLE company (
+	 id int NOT NULL,
     name varchar(64) NOT NULL,
-    city varchar(64) NOT NULL,
-    country varchar(64) NOT NULL,
-    website varchar(150) NOT NULL,
-    rate numeric(100,1) NOT NULL,
-    id int NOT NULL,
-    CONSTRAINT company_pk PRIMARY KEY (id)
+    website varchar(150) NOT NULL    
 );
-
------
 
 -- Table: flight
 CREATE TABLE flight (
@@ -32,36 +28,33 @@ CREATE TABLE flight (
     schedule_id int NOT NULL,
     code varchar(10) NOT NULL,
     company_id int NOT NULL,
-    plane_id int NOT NULL,
-    CONSTRAINT flight_pk PRIMARY KEY (id)
+    plane_id int NOT NULL
 );
+
 
 -- Table: plane
 CREATE TABLE plane (
     id int NOT NULL,
     plane_model varchar(64) NOT NULL,
-    places numeric(1000,1) NOT NULL,
-    CONSTRAINT plane_pk PRIMARY KEY (id)
+    places numeric(1000,1) NOT NULL
 );
 
 -- Table: role
 CREATE TABLE role (
     id int NOT NULL,
     name int NOT NULL,
-    description int NOT NULL,
-    CONSTRAINT role_pk PRIMARY KEY (id)
+    description int NOT NULL
 );
 
 --- 
 
 -- Table: schedule
 CREATE TABLE schedule (
+    id int NOT NULL,
     departure_time time NOT NULL,
     arrival_time time NOT NULL,
     duration timestamp NOT NULL,
-    regularity numeric(365,1) NOT NULL,
-    id int NOT NULL,
-    CONSTRAINT schedule_pk PRIMARY KEY (id)
+    regularity numeric(365,1) NOT NULL
 );
 
 -- Table: user
@@ -71,48 +64,15 @@ CREATE TABLE user (
     role_id int NOT NULL,
     first_name varchar(64) NOT NULL,
     last_name varchar(64) NOT NULL,
-    email varchar(64) NOT NULL,
-    id int NOT NULL,
-    CONSTRAINT user_pk PRIMARY KEY (role_id,id)
+    email varchar(64) NOT NULL
 );
 
 -- Table: user_favorite_flight
 CREATE TABLE user_favorite_flight (
     user_role_id int NOT NULL,
     user_id int NOT NULL,
-    flight_id varchar(64) NOT NULL,
-    CONSTRAINT user_favorite_flight_pk PRIMARY KEY (user_role_id)
+    flight_id varchar(64) NOT NULL
 );
-
--- foreign keys
--- Reference: Table_22_flight (table: flight)
-ALTER TABLE flight ADD CONSTRAINT Table_22_flight FOREIGN KEY Table_22_flight (destination_id)
-    REFERENCES airport (id);
-
--- Reference: flight_Table_23 (table: flight)
-ALTER TABLE flight ADD CONSTRAINT flight_Table_23 FOREIGN KEY flight_Table_23 (schedule_id)
-    REFERENCES schedule (id);
-
--- Reference: flight_Table_24 (table: flight)
-ALTER TABLE flight ADD CONSTRAINT flight_Table_24 FOREIGN KEY flight_Table_24 (company_id)
-    REFERENCES company (id);
-
--- Reference: flight_user_favorite_fl
-INSERT Iight (table: user_favorite_flight)
-ALTER TABLE user_favorite_flight ADD CONSTRAINT flight_user_favorite_flight FOREIGN KEY flight_user_favorite_flight (flight_id)
-    REFERENCES flight (id);
-
--- Reference: plane_flight (table: flight)
-ALTER TABLE flight ADD CONSTRAINT plane_flight FOREIGN KEY plane_flight (plane_id)
-    REFERENCES plane (id);
-
--- Reference: user_Table_35 (table: user)
-ALTER TABLE user ADD CONSTRAINT user_Table_35 FOREIGN KEY user_Table_35 (role_id)
-    REFERENCES role (id);
-
--- Reference: user_flight (table: user_favorite_flight)
-ALTER TABLE user_favorite_flight ADD CONSTRAINT user_flight FOREIGN KEY user_flight (user_role_id,user_id)
-    REFERENCES user (role_id,id);
 
 -- End of file.
 
@@ -136,7 +96,7 @@ INSERT INTO airport (id, city, country, time_zone ) VALUES ('NCE', 'Nice', 'Fran
 INSERT INTO airport (id, city, country, time_zone ) VALUES ('BOD', 'Bordeaux', 'France', '0');
 INSERT INTO airport (id, city, country, time_zone ) VALUES ('BCN', 'Barcelone', 'Espagne', '0');
 INSERT INTO airport (id, city, country, time_zone ) VALUES ('MAD', 'Madrid','Espagne', '0');
-INSERT INTO airport (id, city, country, time_zone ) VALUES ('AMS', 'Amsterdam', 'Pays-Bas' '0');
+INSERT INTO airport (id, city, country, time_zone ) VALUES ('AMS', 'Amsterdam', 'Pays-Bas', '0');
 INSERT INTO airport (id, city, country, time_zone ) VALUES ('SVO', 'Moscou', 'Russie', '+1');
 INSERT INTO airport (id, city, country, time_zone ) VALUES ('DXB', 'Dubai', 'Emirats Arabes Unis', '+2');
 INSERT INTO airport (id, city, country, time_zone ) VALUES ('ARN', 'Stockholm', 'Suède', '0');
@@ -155,11 +115,26 @@ INSERT INTO airport (id, city, country, time_zone ) VALUES ('DOH', 'Doha', 'Qata
 INSERT INTO airport (id, city, country, time_zone ) VALUES ('CPH', 'Copenhague', 'Danemark', '0');
 
 
--- add planes 
+-- add company 
 
--- INSERT INTO planes()
+INSERT INTO company (id, name, website ) VALUES (1, 'easyjet', 'easyjet.com');
+INSERT INTO company (id, name, website ) VALUES (2, 'Air France', 'airfrance.com');
+INSERT INTO company (id, name, website ) VALUES (3, 'SWISS', 'swiss.com');
+INSERT INTO company (id, name, website ) VALUES (4, 'British Airways', 'Britishairways.com');
+INSERT INTO company (id, name, website ) VALUES (5, 'Lufthansa', 'Lufthansa.com');
+INSERT INTO company (id, name, website ) VALUES (6, 'KLM', 'klm.fr');
+INSERT INTO company (id, name, website ) VALUES (7, 'Emirates', 'Emirates.com');
+INSERT INTO company (id, name, website ) VALUES (8, 'Iberia', 'Iberia.com');
+INSERT INTO company (id, name, website ) VALUES (9, 'TAP', 'flytap.com');
+INSERT INTO company (id, name, website ) VALUES (10, 'Qatar Airways', 'Qatar.com');
+INSERT INTO company (id, name, website ) VALUES (11, 'Brussels Airlines', 'Brusselsairlines.com');
+INSERT INTO company (id, name, website ) VALUES (12, 'Turkish Airlines', 'Turkishairlines.com');
+INSERT INTO company (id, name, website ) VALUES (13, 'Air China', 'Airchina.com');
+INSERT INTO company (id, name, website ) VALUES (14, 'Air China', 'Airchina.com');
+INSERT INTO company (id, name, website ) VALUES (15, 'Aeroflot', 'Aeroflot.com');
 
+-- add planes
 
--- add company
+INSERT INTO plane (id, plane_model, )
 
 -- INSERT INTO flight  (flight_id, desination_id, departure_id, schedule_id, company_id, plane_id) VALUES (1, 'MAD', 'GVA', 1, 1, 320 );

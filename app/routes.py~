@@ -95,12 +95,11 @@ def ex1():
     
     return render_template('ex1.html', title=title, user=user, posts=posts)
     
-@app.route('/flight')
+@app.route('/airports')
 def flights():
-        title ="List of flight"
-        db = get_db()
-        users = db.query("SELECT * from flight")
-
-     return render_template('flight', title=title)
+    title ="List of airports"
+    db = get_db()
+    airports = db.get_airports()
+    return render_template('airports.html', title=title, airports=airports)
 
                                                        
