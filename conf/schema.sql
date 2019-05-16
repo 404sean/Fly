@@ -15,7 +15,7 @@ CREATE TABLE airport (
 
 -- Table: company
 CREATE TABLE company (
-	 id int NOT NULL,
+    id int NOT NULL,
     name varchar(64) NOT NULL,
     website varchar(150) NOT NULL    
 );
@@ -36,7 +36,7 @@ CREATE TABLE flight (
 CREATE TABLE plane (
     id int NOT NULL,
     plane_model varchar(64) NOT NULL,
-    places numeric(1000,1) NOT NULL
+    nb_seats numeric(1000,1) NOT NULL
 );
 
 -- Table: role
@@ -135,6 +135,10 @@ INSERT INTO company (id, name, website ) VALUES (15, 'Aeroflot', 'Aeroflot.com')
 
 -- add planes
 
-INSERT INTO plane (id, plane_model, )
+INSERT INTO plane (id, plane_model, nb_seats ) VALUES (, 'A320', '165');
+INSERT INTO plane (id, plane_model, nb_seats ) VALUES (, 'A319', '143');
+INSERT INTO plane (id, plane_model, nb_seats ) VALUES (, 'A321', '180');
+
+
 
 -- INSERT INTO flight  (flight_id, desination_id, departure_id, schedule_id, company_id, plane_id) VALUES (1, 'MAD', 'GVA', 1, 1, 320 );
