@@ -8,7 +8,7 @@
 	    <div><a href="/">Home</a> | 
 		    {% if session['username'] %}<a href="/adduser">Add User</a> | {% endif %} 
 		    {% if session['username'] %}<a href="/users">Users</a> | {% endif %} 
-		    <a href="/flight">Flights</a> | 
+		    <a href="/flights">Flights</a> | 
 		    <a href="/airports">Airports</a> | 
 		    <a href="/company">Companies</a> | 
 		    {% if session['username'] %}<a href="/logout">Logout</a> {% else %} <a href="/login">Login</a>  {% endif %} 

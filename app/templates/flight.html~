@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="container">
+		<h1>List of flights</h1>
+      		<br>
+		<table class="table">
+		<thead>
+			<tr><td><strong>destination</strong></td><td><strong>departure</strong></td><td><strong>schedule</strong></td><td><strong>company</strong></td><td><strong>plane</strong></td>
+		</thead>
+		<tbody>
+    		{% for flight in flight %}
+		<tr>
+			<td>{{ flight.destination_id }}</td><td>{{ flight.departure_id }}</td><td>{{ flight.schedule_id }}</td><td>{{ flight.company_id }}</td><td>{{ flight.plane_id }}</td>
+		</tr>
+    		{% endfor %}
+		</tbody>
+	
+	</table>
+	</div>
+{% endblock %}

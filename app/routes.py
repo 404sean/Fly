@@ -96,10 +96,24 @@ def ex1():
     return render_template('ex1.html', title=title, user=user, posts=posts)
     
 @app.route('/airports')
-def flights():
+def airports():
     title ="List of airports"
     db = get_db()
     airports = db.query("SELECT * from airport")
     return render_template('airports.html', title=title, airports=airports)
 
+@app.route('/company')
+def company():
+    title ="List of company"
+    db = get_db()
+    company = db.query("SELECT * from company")
+    return render_template('company.html', title=title, company=company)
+    
+@app.route('/flight')
+def flights():
+    title ="List of flights"
+    db = get_db()
+    flight = db.query("SELECT a.destination_id, a.departure_id, a.schedule_id, b.name AS cname, a.plane_id  from flight AS a, company AS b WHERE a.company_id = b.id")
+    return render_template('flight.html', title=title, flight=flight)
+        
                                                        

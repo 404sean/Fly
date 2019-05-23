@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="container">
+		<h1>List of company</h1>
+      		<br>
+		<table class="table">
+		<thead>
+			<tr><td><strong>name</strong></td><td><strong>website</strong></td>
+		</thead>
+		<tbody>
+    		{% for company in company %}
+		<tr>
+			<td>{{ company.name }}</td><td>{{ company.website }}</td>
+		</tr>
+    		{% endfor %}
+		</tbody>
+	
+	</table>
+	</div>
+{% endblock %}
