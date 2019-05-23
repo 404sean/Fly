@@ -26,8 +26,7 @@ CREATE TABLE flight (
     destination_id varchar(4) NOT NULL,
     departure_id varchar(4) NOT NULL,
     schedule_id int NOT NULL,
-    code varchar(10) NOT NULL,
-    company_id int NOT NULL,
+    company_name varchar(64) NOT NULL,
     plane_id int NOT NULL
 );
 
@@ -36,7 +35,7 @@ CREATE TABLE flight (
 CREATE TABLE plane (
     id int NOT NULL,
     plane_model varchar(64) NOT NULL,
-    places numeric(1000,1) NOT NULL
+    seats numeric(1000,1) NOT NULL
 );
 
 -- Table: role
@@ -118,11 +117,36 @@ INSERT INTO airport (id, city, country, time_zone ) VALUES ('CPH', 'Copenhague',
 -- add company 
 
 INSERT INTO company (id, name, website ) VALUES (1, 'easyjet', 'easyjet.com');
-INSERT INTO company (id, name, website ) VALUES (2, 'Air France', 'airfrance.fr');
+INSERT INTO company (id, name, website ) VALUES (2, 'Air France', 'airfrance.com');
+INSERT INTO company (id, name, website ) VALUES (3, 'SWISS', 'swiss.com');
+INSERT INTO company (id, name, website ) VALUES (4, 'British Airways', 'Britishairways.com');
+INSERT INTO company (id, name, website ) VALUES (5, 'Lufthansa', 'Lufthansa.com');
+INSERT INTO company (id, name, website ) VALUES (6, 'KLM', 'klm.fr');
+INSERT INTO company (id, name, website ) VALUES (7, 'Emirates', 'Emirates.com');
+INSERT INTO company (id, name, website ) VALUES (8, 'Iberia', 'Iberia.com');
+INSERT INTO company (id, name, website ) VALUES (9, 'TAP', 'flytap.com');
+INSERT INTO company (id, name, website ) VALUES (10, 'Qatar Airways', 'Qatar.com');
+INSERT INTO company (id, name, website ) VALUES (11, 'Brussels Airlines', 'Brusselsairlines.com');
+INSERT INTO company (id, name, website ) VALUES (12, 'Turkish Airlines', 'Turkishairlines.com');
+INSERT INTO company (id, name, website ) VALUES (13, 'Air China', 'Airchina.com');
+INSERT INTO company (id, name, website ) VALUES (14, 'Aeroflot', 'Aeroflot.com');
+
+-- add planes
+
+INSERT INTO plane (id, plane_model, seats ) VALUES (1, 'Airbus A320', '185');
+
+-- add flights
+
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_name, plane_id) VALUES (1, 'MAD', 'GVA', 1, 1, 1 );
+
+-- schedule 
+
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (1, '7:35', '9:15', '1:40', '365');
 
 
 
 
--- add company
 
--- INSERT INTO flight  (flight_id, desination_id, departure_id, schedule_id, company_id, plane_id) VALUES (1, 'MAD', 'GVA', 1, 1, 320 );
+
+
+
