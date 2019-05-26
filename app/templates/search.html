@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<div class="container">
+		<h1>Add User</h1>
+      		<br>
+      		<form action="" method="post">
+			<div class="form-group">
+			<input type="text" placeholder="Search Destination" name="firstname" value="{{ request.form.firstname }}">
+			</div>	
+			<button class="btn btn-primary" type="submit">Add User</button>
+		</form>
+		{% if error %}
+		<p class="error"><strong>Error:</strong> {{ error }}</p>
+		{% endif %}
+		{% if msg %}
+		<p class="msg">{{ msg }}</p>
+		{% endif %}
+	</div>
+{% endblock %}

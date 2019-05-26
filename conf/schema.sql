@@ -138,10 +138,48 @@ INSERT INTO plane (id, plane_model, seats ) VALUES (1, 'Airbus A320', '185');
 -- add flights
 
 INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (1, 'MAD', 'GVA', 1, 1, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (2, 'LHR', 'GVA', 2, 4, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (3, 'ZRH', 'GVA', 3, 3, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (4, 'LHR', 'GVA', 4, 3, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (5, 'LHR', 'GVA', 5, 4, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (6, 'DXB', 'GVA', 6, 7, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (7, 'CPH', 'GVA', 7, 1, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (8, 'PEK', 'GVA', 8, 13, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (9, 'DOH', 'GVA', 9, 10, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (10, 'CDG', 'GVA', 10, 2, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (11, 'DOH', 'GVA', 11, 10, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (12, 'DOH', 'GVA', 12, 10, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (13, 'DOH', 'GVA', 13, 10, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (14, 'DOH', 'GVA', 14, 10, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (15, 'DOH', 'GVA', 15, 10, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (16, 'DOH', 'GVA', 16, 10, 1 );
+INSERT INTO flight (id, destination_id, departure_id, schedule_id, company_id, plane_id) VALUES (17, 'DOH', 'GVA', 17, 10, 1 );
+
 
 -- schedule 
 
-INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (1, '7:35', '9:15', '1:40', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (1, '07:35', '09:15', '1:40', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (2, '08:35', '10:10', '1:35', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (3, '10:00', '10:45', '0:45', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (4, '07:10', '08:55', '1:45', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (5, '17:20', '18:55', '1:45', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (6, '15:15', '21:45', '6:30', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (7, '16:00', '18:00', '2:00', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (8, '13:20', '23:30', '10:10', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (9, '16:55', '22:59', '6:04', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (10, '16:55', '22:59', '6:04', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (11, '16:55', '22:59', '6:04', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (12, '16:55', '22:59', '6:04', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (13, '16:55', '22:59', '6:04', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (14, '16:55', '22:59', '6:04', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (15, '16:55', '22:59', '6:04', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (16, '16:55', '22:59', '6:04', '365');
+INSERT INTO schedule (id, departure_time, arrival_time, duration, regularity) VALUES (17, '16:55', '22:59', '6:04', '365');
+
+
+
+
+
 
 
 

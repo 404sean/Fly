@@ -2,16 +2,16 @@
 
 {% block content %}
 	<div class="container">
-		<h1>List of flights</h1>
+		<center><h1>List of flights departing from Geneva</h1>
       		<br>
 		<table class="table">
 		<thead>
-			<tr><td><strong>destination</strong></td><td><strong>departure</strong></td><td><strong>schedule</strong></td><td><strong>company</strong></td><td><strong>plane</strong></td>
+			<tr><td><strong>Destination</strong></td><td><strong>Departure time</strong></td><td><strong>Arrival time</strong></td><td><strong>Duration</strong></td><td><strong>Company</strong></td><td><strong>Plane</strong></td>
 		</thead>
 		<tbody>
     		{% for flight in flight %}
 		<tr>
-			<td>{{ flight.destination_id }}</td><td>{{ flight.departure_id }}</td><td>{{ flight.schedule_id }}</td><td>{{ flight.cname }}</td><td>{{ flight.plane_id }}</td>
+			<td>{{ flight.dcity }} ( {{ flight.did }} )</td><td>{{ flight.dtime }}</td><td>{{ flight.atime }}</td><td>{{ flight.duration }}</td><td>{{ flight.cname }}</td><td>{{ flight.pname }}</td>
 		</tr>
     		{% endfor %}
 		</tbody>
@@ -19,3 +19,4 @@
 	</table>
 	</div>
 {% endblock %}
+
