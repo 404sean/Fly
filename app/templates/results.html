@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+		<div class="container">
+			<center><h1>List of flights departing from Geneva</h1>
+	      		<br>
+			<table class="table">
+			<thead>
+				<tr><td><strong>Destination</strong></td><td><strong>Departure time</strong></td><td><strong>Arrival time</strong></td><td><strong>Duration</strong></td><td><strong>Company</strong></td><td><strong>Plane</strong></td>
+			</thead>
+			<tbody>
+	    		{% for flight in flight %}
+			<tr>
+				<td>{{ flight.dcity }} ( {{ flight.did }} )</td><td>{{ flight.dtime }}</td><td>{{ flight.atime }}</td><td>{{ flight.duration }}</td><td>{{ flight.cname }}</td><td>{{ flight.pname }}</td>
+			</tr>
+	    		{% endfor %}
+			</tbody>
+		
+		</table>
+		{% if error %}
+					<p class="error"><strong>Error:</strong> {{ error }}
+					
+	{% endif %}
+		</div>
+	
+{% endblock %}
+

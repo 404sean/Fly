@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-	<div class="container">
+	<div class="container"><center>
+		<br>
+		<br>
+		<br>
 		<h1>Welcome <b>{% if session['username'] %} {{ session['username'] }} {% else %} Traveller {% endif %}</b>!</h1>
       		<br>
     		<div><p>This is a database of flights departing from Geneva</p></div>

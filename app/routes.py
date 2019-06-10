@@ -113,8 +113,24 @@ def company():
 def flights():
     title ="List of flights"
     db = get_db()
-    flight = db.query("SELECT a.destination_id AS did, d.city AS dcity, c.departure_time AS dtime, c.arrival_time AS atime, c.duration AS duration, b.name AS cname, e.plane_model AS pname from flight AS a, company AS b, schedule AS c, airport AS d, plane as e WHERE a.schedule_id = c.id AND a.company_id = b.id AND a.destination_id = d.id AND a.plane_id = e.id ORDER BY dtime")
+    flight = db.query("SELECT a.destination_id AS did, d.city AS dcity, c.departure_time AS dtime, c.arrival_time AS atime, c.duration AS duration, b.name AS cname, e.plane_model AS pname from flight AS a, company AS b, schedule AS c, airport AS d, plane as e WHERE a.schedule_id=c.id AND a.company_id = b.id AND a.destination_id = d.id AND a.plane_id = e.id ORDER BY dtime")
     return render_template('flight.html', title=title, flight=flight)
- 
+@app.route('/search')
+def search():
+    title ="List of search"
+    db = get_db()
+    search = db.query("SELECT a.destination_id AS did, d.city AS dcity, c.departure_time AS dtime, c.arrival_time AS atime, c.duration AS duration, b.name AS cname, e.plane_model AS pname from flight AS a, company AS b, schedule AS c, airport AS d, plane as e WHERE a.schedule_id = c.id AND a.company_id = b.id AND a.destination_id = d.id AND a.plane_id = e.id  ORDER BY dtime")
+    return render_template('search.html',  title=title, search=search)
+@app.route('/results', methods=['POST', 'GET'])
+def results():
+    title ="Results"
+    error = None 
+    if request.method=='POST':
+        destination = request.form['destination']
+        db = get_db()
+        flight = db.query("SELECT a.destination_id AS did, d.city AS dcity, c.departure_time AS dtime, c.arrival_time AS atime, c.duration AS duration, b.name AS cname, e.plane_model AS pname from flight AS a, company AS b, schedule AS c, airport AS d, plane as e WHERE a.schedule_id = c.id AND a.company_id = b.id AND a.destination_id = d.id AND a.plane_id = e.id AND dcity = ? ORDER BY dtime", (destination,),) 
+    else:     
+        return redirect(url_for('search'))
+    return render_template('results.html',  title=title, flight=flight)
 
                                                        

@@ -1,20 +1,63 @@
-{% extends "base.html" %}
 
-{% block content %}
-	<div class="container">
-		<h1>Add User</h1>
-      		<br>
-      		<form action="" method="post">
-			<div class="form-group">
-			<input type="text" placeholder="Search Destination" name="firstname" value="{{ request.form.firstname }}">
-			</div>	
-			<button class="btn btn-primary" type="submit">Add User</button>
-		</form>
-		{% if error %}
-		<p class="error"><strong>Error:</strong> {{ error }}</p>
-		{% endif %}
-		{% if msg %}
-		<p class="msg">{{ msg }}</p>
-		{% endif %}
-	</div>
-{% endblock %}
+
+
+<html>
+	  <head>
+	    <title>{{ title }}</title>
+      	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    	<style type="text/css">
+    		
+    		.banderole{
+    			margin-left: 10px;
+    			margin-top: 10px;
+    		}
+
+    	</style>
+    </head>
+
+
+
+	<body background="https://www.unitypixel.com/download/470/1366x768/crop/4k-airport-desktop-wallpaper-10159.jpg">
+		<div style="background-color: white; padding-bottom: 17px; border-bottom: 1px solid black;"><span class='banderole'><a href="/">Home</a> | 
+		   
+		    <a href="/flight">Flights</a> | 
+		    <a href="/airports">Airports</a> | 
+		    <a href="/company">Companies</a> | 
+		    <a href="/search">Search</a></span> | 
+
+		    {% if session['username'] %}<a href="/logout">Logout</a> {% else %} <a href="/login">Login</a>  {% endif %} 
+		    {% if session['username'] %}(Logged as <strong>{{ session['username'] }}</strong>){% endif %}</div>	
+
+
+
+
+		<center>
+			<div class="container">
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<div style="background-color: #43464B; width: 500px; height: 225px; border: 1px solid black; opacity: 0.95; border-radius: 15px;">
+				<br>		
+				<h1 style="color: white;">Search Destination </h1>
+		      		<br>
+		      		<form action="/results" method="post">
+					<div class="form-group">
+					<input  type="text" placeholder="Enter Destination" name="destination" value="{{ request.form.destination  }}" style="text-align: center; border-radius: 5px;">
+					</div>
+					<div class="form-group">
+					<button type="submit" class="btn btn-primary" style="background-color: #FF6600;">Show flights</button>
+				</form>
+				</div>
+				{% if error %}
+				<p class="error"><strong>Error:</strong> {{ error }}
+				{% endif %}
+			</div>
+		</center>
+
+	</body>
+</html>
+
